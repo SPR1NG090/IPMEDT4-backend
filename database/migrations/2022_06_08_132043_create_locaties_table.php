@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateLocatiesTable extends Migration
 {
@@ -12,7 +13,13 @@ class CreateLocatiesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('locatie', function (Blueprint $table) {
+            $table->id();
+            $table->string('coordinaten');
+            $table->string('naam');
+            $table->string('beschrijving');
+            
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateLocatiesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('locatie');
     }
 }

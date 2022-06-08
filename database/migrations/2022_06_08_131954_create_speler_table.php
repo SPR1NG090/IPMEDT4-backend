@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateSpelerTable extends Migration
 {
@@ -12,7 +13,12 @@ class CreateSpelerTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('speler', function (Blueprint $table) {
+            $table->id();
+            $table->string('naam');
+            $table->string('locatie');
+            
+        });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateSpelerTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('speler');
     }
 }
